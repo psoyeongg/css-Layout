@@ -1,0 +1,23 @@
+.father {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.box {
+  height: 400px;
+  color: white;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box:first-child {
+  background-color: tomato;
+  flex-basis: 500px;
+}
+
+.box:last-child {
+  background-color: teal;
+}
