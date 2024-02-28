@@ -1,0 +1,147 @@
+@import "./reset.scss";
+
+$border: 2px solid #383f43;
+
+body {
+  color: #393d45;
+  text-transform: uppercase;
+  height: 100vh;
+  background-color: #b0b5ba;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .container {
+    background-color: #e4e5e8;
+    box-shadow: -7px 8px 19px 4px rgba(0, 0, 0, 0.3);
+    height: 90%;
+    width: 90%;
+    border-radius: 5px;
+
+    display: grid;
+    grid-template-columns: 1fr 2fr 3fr;
+
+    .memory {
+      position: relative;
+      .header-icon {
+        font-size: 10px;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+      }
+      display: grid;
+      grid-template-rows: repeat(4, 1fr);
+      border-right: $border;
+
+      .momory__used-item {
+        &:not(:last-child) {
+          border-bottom: $border;
+        }
+
+        .used-info {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          font-size: 16px;
+          justify-content: space-between;
+          span:last-child {
+            font-size: 8px;
+          }
+        }
+
+        .icon {
+          font-size: 90px;
+        }
+      }
+
+      & > * {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 15px;
+        gap: 60px;
+      }
+    }
+
+    .available-menu {
+      display: grid;
+      grid-template-rows: repeat(2, 1fr);
+      width: 100%;
+
+      .available {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        border-bottom: $border;
+        border-right: $border;
+        width: 100%;
+        justify-content: space-evenly;
+        .available__item {
+          display: flex;
+          flex-direction: column;
+
+          .label {
+            font-size: 10px;
+            font-weight: 600;
+          }
+          .available__value {
+            font-size: 120px;
+          }
+        }
+      }
+
+      .menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        border-right: $border;
+
+        div {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          span {
+            &:first-child {
+              font-size: 50px;
+            }
+          }
+        }
+      }
+    }
+
+    .space {
+      border-left: $border;
+      display: grid;
+      grid-template-rows: 3.3fr 1fr 2fr 3fr 5fr;
+      div {
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        &:nth-child(2) {
+          background-color: #ecc214;
+        }
+        &:nth-child(3) {
+          background-color: #7f848a;
+        }
+        &:nth-child(4) {
+          background-color: #e21d01;
+          color: white;
+        }
+        &:nth-child(5) {
+          background-color: #392baa;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+.value::after {
+  content: "TB";
+  font-size: 10px;
+  padding-left: 3px;
+}
