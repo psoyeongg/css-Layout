@@ -1,0 +1,141 @@
+@import "./reset.scss";
+
+$bg: #efefef;
+$accent: #c7c2cc;
+$borderWidth: 2px;
+
+@keyframes slide {
+  0% {
+    transform: translateY(-3000%) rotateZ(90deg);
+  }
+  100% {
+    transform: translateY(calc(0% - 65px)) rotateZ(90deg);
+  }
+}
+
+body {
+  background-color: black;
+  height: 100vh;
+  display: grid;
+  gap: $borderWidth;
+  grid-template-rows: 10fr 10fr 45fr 35fr;
+  grid-template-columns: 0.3fr repeat(4, 1fr);
+
+  div {
+    background-color: $bg;
+    // &:first-child {
+    //   grid-row: span 2;
+    //   grid-column: span 2;
+    // }
+
+    // &:nth-child(2) {
+    //   grid-column: 3 / -1;
+    // }
+
+    // &:nth-child(6) {
+    //   grid-row: span 2;
+    // }
+
+    &:nth-child(11) {
+      grid-column: span 3;
+    }
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+      height: 100%;
+    }
+  }
+
+  .logo {
+    grid-area: span 2 / span 2;
+    font-size: 198px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .title {
+    grid-column: span 3;
+    font-size: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  .banner {
+    grid-row: span 2;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+
+    span {
+      position: absolute;
+      width: max-content;
+      color: white;
+      font-size: 26px;
+      font-weight: 600;
+      animation: slide 5s linear infinite;
+    }
+  }
+
+  .nav__btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 20px;
+    gap: 5px;
+    .nav-btn__name {
+      font-size: 24px;
+      font-weight: 600;
+    }
+    .nav-btn__dec {
+      font-size: 15px;
+    }
+  }
+
+  .post {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+
+    &.post-big {
+      .post__title {
+        font-size: 248px;
+      }
+    }
+    .post__title {
+      font-size: 44px;
+      font-weight: 600;
+    }
+    p {
+      font-size: 22px;
+    }
+  }
+
+  .featured {
+    background-color: $accent;
+    padding: 50px;
+    display: flex;
+
+    div {
+      border: $borderWidth solid black;
+      background-color: $bg;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      h3 {
+        font-size: 48px;
+        font-weight: 600;
+        text-align: center;
+      }
+    }
+  }
+}
