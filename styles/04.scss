@@ -1,0 +1,148 @@
+@import "./reset.scss";
+
+$gridGap: 5px;
+$cellRadius: 12px;
+
+body {
+  height: 100vh;
+  background-color: #7d4aa9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  background-color: black;
+  max-width: 80%;
+  height: 95%;
+  padding: 40px;
+  box-sizing: border-box;
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    height: 100%;
+    gap: $gridGap;
+    // grid 의 모든 직계 자식에 같은 스타일 적용
+    // & > * {
+    //   background-color: white;
+    //   border-radius: 15px;
+    // }
+    .grid__col {
+      &:first-child {
+        display: grid;
+        background-color: black;
+        gap: $gridGap;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1.5fr 1fr;
+        .header {
+          grid-column: span 2;
+          border-radius: $cellRadius;
+          background-color: white;
+          padding: 40px;
+          display: grid;
+          grid-template-rows: 1fr 3fr 1fr;
+          .header__top {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+            gap: 20px;
+            .header__reviews {
+              font-size: 18px;
+              font-weight: 400;
+            }
+            .header__label {
+              border-radius: $cellRadius;
+              background-color: #ffc830;
+              font-weight: 600;
+              font-size: 12px;
+              padding: 5px 10px;
+            }
+          }
+          .header__title {
+            font-size: 98px;
+            font-weight: bold;
+            align-self: center;
+            justify-self: center;
+          }
+          .header__subtitle {
+            font-size: 44px;
+            font-weight: 500;
+            border-top: 2px solid black;
+            padding-top: 10px;
+          }
+        }
+      }
+      &:last-child {
+        display: grid;
+        gap: $gridGap;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1.5fr 1fr;
+        .subgrid {
+          display: grid;
+          gap: $gridGap;
+          grid-template-columns: 1.5fr 1fr;
+          grid-template-rows: 1.3fr 1fr;
+          .nav {
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 30px;
+            .nav__cta {
+              font-size: 18px;
+            }
+            ul {
+              display: flex;
+              flex-direction: column;
+              gap: 30px;
+              font-size: 12px;
+            }
+          }
+          .grid__cells {
+            display: grid;
+            gap: $gridGap;
+            grid-template-rows: 1fr 1fr 2fr;
+            .grid__cell {
+              border-radius: $cellRadius;
+              font-size: 12px;
+              padding: 20px;
+              &:first-child {
+                background-color: #ffc830;
+              }
+              &:nth-child(2) {
+                background-color: white;
+                transform: rotateZ(10deg);
+                box-shadow: 2px 5px 10px rgb(0, 0, 0, 0.8);
+              }
+            }
+            .grid__cell-cta {
+              color: white;
+              font-size: 20px;
+              padding-left: 20px;
+              align-self: center;
+            }
+          }
+        }
+        .blog-post {
+          grid-column: span 2;
+          background-color: white;
+          border-radius: $cellRadius;
+          display: flex;
+          align-items: flex-end;
+          font-size: 14px;
+          p {
+            padding: 20px;
+            width: 80%;
+          }
+        }
+      }
+    }
+
+    .grid__img {
+      background-image: url("https://source.unsplash.com/random");
+      background-size: cover;
+      border-radius: $cellRadius;
+    }
+  }
+}
