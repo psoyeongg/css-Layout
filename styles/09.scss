@@ -1,0 +1,67 @@
+@import "./reset.scss";
+
+$green: #5ebd44;
+$white: #dee2d7;
+
+body {
+  background-color: black;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.poster {
+  background-color: $green;
+  width: 37%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 30fr 70fr;
+
+  .top {
+    padding: 50px;
+    display: grid;
+    row-gap: 25px;
+    grid-template-columns: 70fr 30fr;
+    .top__box {
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
+      font-weight: 600;
+      font-size: 18px;
+      &:last-child {
+        color: white;
+        font-size: 22px;
+        align-self: center;
+      }
+
+      h1 {
+        font-size: 100px;
+      }
+    }
+  }
+
+  .bottom {
+    overflow: hidden;
+    .circles {
+      transform: scale(1.1);
+      background-color: black;
+      height: 100%;
+      display: grid;
+      grid-template: repeat(11, 1fr) / repeat(11, 1fr);
+      gap: 10px;
+
+      .circle {
+        background-color: $green;
+        border-radius: 50%;
+        @for $i from 1 through 9 {
+          @for $j from (11 * $i)+2 through (11 * $i)+1 + $i {
+            &:nth-child(#{$j}) {
+              background-color: $white;
+            }
+          }
+        }
+      }
+    }
+  }
+}
