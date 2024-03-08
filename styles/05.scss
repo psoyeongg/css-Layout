@@ -1,0 +1,74 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  width: 100%;
+  height: 100vh;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-rows: 10vw;
+  grid-auto-rows: 40vh;
+}
+
+header {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5vw;
+  font-weight: 300;
+  letter-spacing: 5px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  text-align: center;
+  font-weight: 300;
+
+  .top {
+    padding-top: 20px;
+    width: 65%;
+  }
+
+  .bottom {
+    padding-bottom: 20px;
+    font-size: 9px;
+  }
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  &:nth-child(2) {
+    background-color: #bfbda7;
+  }
+  &:nth-child(4) {
+    background-color: #fd4815;
+  }
+  &:nth-child(6) {
+    background-color: #847f96;
+  }
+  &:nth-child(7) {
+    background-color: #d1ff71;
+  }
+  &:nth-child(8) {
+    background-color: #983433;
+  }
+  &:nth-child(9) {
+    background-color: #39a9f9;
+  }
+  &:nth-child(11) {
+    background-color: #41907a;
+  }
+  &:last-child {
+    background-color: #e3c4e5;
+  }
+}
